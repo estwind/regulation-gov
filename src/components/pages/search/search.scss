@@ -1,0 +1,16 @@
+@import './../../../styles/variables.scss';
+.search {
+    display: flex;
+    height: 100%;
+    
+}
+.searchPanel {
+    width: 300px;
+    background-color: #fff;
+    padding: 24px;
+}
+.searchResults {
+    background-color: $bg-color;
+    width: 100%;
+    padding: 24px;
+}
