@@ -11,9 +11,11 @@ const Search = () => {
   // };
 
   useEffect(() => {
-    fetch('http://api.duma.gov.ru/api/b7886da6f2500ed765c67bd8e9904b3eb83b1c23/topics.json')
-    .then(response => response.text())
-    .then(data => console.log(data));
+    fetch(
+      "http://api.duma.gov.ru/api/b7886da6f2500ed765c67bd8e9904b3eb83b1c23/topics.json"
+    )
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }, []);
 
   return (
