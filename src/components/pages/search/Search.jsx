@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const Search = () => {
   const postData = async () => {
     const response = await fetch(
-      "https://api.duma.gov.ru/api/b7886da6f2500ed765c67bd8e9904b3eb83b1c23/topics.json"
+      "http://api.duma.gov.ru/api/b7886da6f2500ed765c67bd8e9904b3eb83b1c23/topics.json"
     );
     return await response.json();
   };
