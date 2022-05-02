@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>React App</title>
+</head>
+
+<body>
+
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>
+    var token = "b7886da6f2500ed765c67bd8e9904b3eb83b1c23";
+
+$.ajax({
+  "url":  "http://api.duma.gov.ru/api/" + token + "/search.json",
+  "data": {
+      "status":             6,            // законопроекты, рассмотрение которых завершено
+      "registration_start": "2011-01-01", // в датой регистрации
+      "registration_end":   "2011-03-31", // с 1 января 2011 по 31 марта 2011
+      "limit":              10            // вывести первые 10 найденных законопроектов      
+  },
+  "dataType": "jsonp",
+  "success": function(data) {
+    // возникла ошибка, выводим код и сообщение об ошибке
+    if (data.code) {
+      $(".ajax").remove();
+      alert("Error #" + data.code + ": " + data.text);
+
+      return false;
+    }
+
+    console.log({data: data})
+  }
+});
+  </script>
+</body>
+
 </html>
