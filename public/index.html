@@ -7,35 +7,10 @@
   <meta name="description" content="Web site created using create-react-app" />
   <title>React App</title>
 </head>
+
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script>
-    var token = "0fe8301c7a1246606877db2f9835bb9c4d9b24a5";
-    var url = "http://api.duma.gov.ru/api/" + token + "/search.json?app_token=appe6f512ef4104f66ef4aa2f8d7e2fcec46b2fc7c3"
-
-$.ajax({
-  "url":  url,
-  "data": {
-      "status":             6,            // законопроекты, рассмотрение которых завершено
-      "registration_start": "2011-01-01", // в датой регистрации
-      "registration_end":   "2011-03-31", // с 1 января 2011 по 31 марта 2011
-      "limit":              10            // вывести первые 10 найденных законопроектов      
-  },
-  "dataType": "jsonp",
-  "success": function(data) {
-    // возникла ошибка, выводим код и сообщение об ошибке
-    if (data.code) {
-      $(".ajax").remove();
-      console.log("Error #" + data.code + ": " + data.text)
-      return false;
-    }
-
-    console.log({data: data})
-  }
-});
-  </script>
 </body>
 
 </html>
